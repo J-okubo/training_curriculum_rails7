@@ -26,7 +26,6 @@ class CalendarsController < ApplicationController
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     @todays_date = Date.today
-
     @week_days = []
 
     plans = Plan.where(date: @todays_date..@todays_date + 6)
@@ -36,7 +35,7 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
-      
+
       days = {
         month:(@todays_date + x).month,
         date:(@todays_date+x).day,
